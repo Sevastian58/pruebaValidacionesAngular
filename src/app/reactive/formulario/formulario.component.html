@@ -1,0 +1,79 @@
+<div class="container-sm d-flex flex-column  align-items-center">
+  <h3 class="m-5">Ingresar datos de cliente</h3>
+  <form [formGroup]="myForm" (ngSubmit)="onSave()" autocomplete="off">
+    <div class="col-12 row" >
+      <div class="mb-3 col-6">
+        <label for="exampleInputEmail1" class="form-label">Nombres</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="cliente.name" formControlName="name" name="name">
+        <span class="form-text text-danger" *ngIf="myForm.get('name')?.invalid && (myForm.get('name')?.dirty || myForm.get('name')?.touched)">
+          <span *ngIf="myForm.get('name')?.hasError('required')">Este campo es requerido</span>
+          <span *ngIf="myForm.get('name')?.hasError('minlength')">Este campo debe tener mínimo 3 letras</span>
+        </span>
+      </div>
+      <div class="mb-3 col-6">
+        <label for="exampleInputEmail1" class="form-label">Apellidos</label>
+        <input type="text" class="form-control" id="lastName" formControlName="lastName" [(ngModel)]="cliente.lastName" name="lastName">
+        <span class="form-text text-danger" *ngIf="myForm.get('lastName')?.invalid && (myForm.get('lastName')?.dirty || myForm.get('lastName')?.touched)">
+          <span *ngIf="myForm.get('lastName')?.hasError('required')">Este campo es requerido</span>
+          <span *ngIf="myForm.get('lastName')?.hasError('minlength')">Este campo debe tener mínimo 3 letras</span>
+        </span>
+      </div>
+    </div>
+    <div class="col-12 row" >
+      <div class="mb-3 col-6">
+        <label for="exampleInputEmail1" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" formControlName="email" [(ngModel)]="cliente.email" name="email">
+        <span class="form-text text-danger" *ngIf="myForm.get('email')?.invalid && (myForm.get('email')?.dirty || myForm.get('email')?.touched)">
+          <span *ngIf="myForm.get('email')?.hasError('required')">Este campo es requerido</span>
+          <span *ngIf="myForm.get('email')?.hasError('email')">Debe ingresar un correo válido</span>
+        </span>
+        </div>
+      <div class="mb-3 col-3">
+        <label for="exampleInputEmail1" class="form-label">DNI</label>
+        <input type="text" class="form-control" id="dni" formControlName="dni" [(ngModel)]="cliente.dni" name="dni">
+        <span class="form-text text-danger" *ngIf="myForm.get('dni')?.invalid && (myForm.get('dni')?.dirty || myForm.get('dni')?.touched)">
+          <span *ngIf="myForm.get('dni')?.hasError('required')">Este campo es requerido</span>
+          <span *ngIf="myForm.get('dni')?.hasError('pattern')">Ingresa solo números(8 dígitos)</span>
+        </span>
+      </div>
+      <div class="mb-3 col-3">
+        <label for="exampleInputEmail1" class="form-label">Edad</label>
+        <input type="number" class="form-control" id="age" formControlName="age" [(ngModel)]="cliente.age" name="age">
+        <span class="form-text text-danger" *ngIf="myForm.get('age')?.invalid && (myForm.get('age')?.dirty || myForm.get('age')?.touched)">
+          <span *ngIf="myForm.get('age')?.hasError('required')">Este campo es requerido</span>
+        </span>
+      </div>
+    </div>
+    <div class="col-12 row" >
+      <div class="mb-3 col-6">
+        <label for="exampleInputEmail1" class="form-label">Direccion</label>
+        <input type="text" class="form-control" id="address" formControlName="address" [(ngModel)]="cliente.address" name="address">
+        <span class="form-text text-danger" *ngIf="myForm.get('address')?.invalid && (myForm.get('address')?.dirty || myForm.get('address')?.touched)">
+          <span *ngIf="myForm.get('address')?.hasError('required')">Este campo es requerido</span>
+          <span *ngIf="myForm.get('address')?.hasError('minlength')">Este campo debe tener mínimo 3 letras</span>
+        </span>
+      </div>
+      <div class="mb-3 col-3">
+        <label for="exampleInputEmail1" class="form-label">Ciudad</label>
+        <input type="text" class="form-control" id="city" formControlName="city" [(ngModel)]="cliente.city" name="city">
+        <span class="form-text text-danger" *ngIf="myForm.get('city')?.invalid && (myForm.get('city')?.dirty || myForm.get('city')?.touched)">
+          <span *ngIf="myForm.get('city')?.hasError('required')">Este campo es requerido</span>
+          <span *ngIf="myForm.get('city')?.hasError('minlength')">Este campo debe tener mínimo 3 letras</span>
+        </span>
+      </div>
+      <div class="mb-3 col-3">
+        <label for="exampleInputEmail1" class="form-label">Pais</label>
+        <input type="text" class="form-control" id="country" formControlName="country" [(ngModel)]="cliente.country" name="country">
+        <span class="form-text text-danger" *ngIf="myForm.get('country')?.invalid && (myForm.get('country')?.dirty || myForm.get('country')?.touched)">
+          <span *ngIf="myForm.get('country')?.hasError('required')">Este campo es requerido</span>
+          <span *ngIf="myForm.get('country')?.hasError('minlength')">Este campo debe tener mínimo 3 letras</span>
+        </span>
+
+      </div>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Crear</button>
+  </form>
+</div>
+
